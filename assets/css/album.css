@@ -5,3 +5,6 @@
 #text-search{
     width:500px;
 }
+.filter {
+    filter: grayscale(1);
+}

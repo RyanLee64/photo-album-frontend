@@ -56,7 +56,9 @@ $(document).ready(function() {
  
   })
   $("#mic-icon").click(function(){
+    $("#mic-icon").addClass("filter")
     startRecognition()
+    
   })
   
 
@@ -80,6 +82,7 @@ startRecognition = () => {
     recognition.onspeechend = () => {
       //fill in later
       recognition.stop();
+      $("#mic-icon").removeClass("filter")
     };
 
     recognition.onresult = (result) => {
