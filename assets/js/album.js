@@ -49,7 +49,8 @@ $(document).ready(function() {
     });
     console.log(labels)
     let header = {"Content-Type": 'garbage', "filename" : file.name, "x-amz-meta-customLabels": labels}
-    sdk.uploadPut(header,data,{})
+    sdk.uploadPut(header,data,{}).then((response) => {
+      console.log(response);})
   
     })
     
