@@ -48,7 +48,7 @@ $(document).ready(function() {
       labels.push(this.value) // "this" is the current element in the loop
     });
     console.log(labels)
-    let header = {"Content-Type": 'garbage', "filename" : file.name, "x-amz-meta-customLabels": labels}
+    let header = {"x-api-key": "3IszdTNj939DnB7Gfet8v9dQMaTj6taDazpZWXwV", "Content-Type": 'garbage', "filename" : file.name, "x-amz-meta-customLabels": labels}
     sdk.uploadPut(header,data,{}).then((response) => {
       console.log(response);})
   
