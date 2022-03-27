@@ -50,6 +50,12 @@ $(document).ready(function() {
     console.log(labels)
     let header = { "x-api-key":"3IszdTNj939DnB7Gfet8v9dQMaTj6taDazpZWXwV","Content-Type": 'garbage', "filename" : file.name, "x-amz-meta-customLabels": labels}
     sdk.uploadPut(header,data,{}).then((response) => {
+      if(response.status == 200){
+        alert("Photo uploaded successfully!")
+      }
+      else{
+        alert("Photo upload not successful")
+      }
       console.log(response);})
   
     })
@@ -63,7 +69,20 @@ $(document).ready(function() {
   })
   $("#submit-search").click(function(){
     let q = $("#text-search").val()
-    sdk.searchGet({"q":q},{},{})
+    sdk.searchGet({"q":q},{},{}).then((response)=>{
+      console.log(response)
+      let results = response.data.results
+      $("#search-results").empty()
+      $("#hits").empty()
+      $("#hits").append("<h3>"+results.length+" results for: \""+q+"\"<h3><br>")
+      $.each(results, function(key, value) {
+        $("#search-results").append(
+          "<div class=\"col-md-4\"> <img class = \"img-fluid\" src=\""+value.url+"\"></div>"
+        )
+        console.log(value)
+        
+      });
+    })
   })
   
 
