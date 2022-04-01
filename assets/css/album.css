@@ -8,3 +8,9 @@
 .filter {
     filter: grayscale(1);
 }
+
+
+.container{
+	background-color:gray;
+}
+
